@@ -39,7 +39,7 @@ export async function getBalance() {
 export default function Home() {
   var formater = new Intl.NumberFormat('en-US');
   const timeOfDay = getTimeOfDay();
-  var balances = getBalance();
+  var balances = formater.format(getBalance());
   
   return (
     <main className="bg-accent py-20">
@@ -51,7 +51,7 @@ export default function Home() {
 
           <div className="balanceCard relative bg-white shadow rounded-md p-6">
             <h2 className="text-primary text-lg font-medium">PayPal balance</h2>
-            <h3 className="text-5xl py-4 font-light">${formater.format(balances)}</h3>
+            <h3 className="text-5xl py-4 font-light">${balances}</h3>
             <h4 className="text-lg font-light text-slate-700">Available</h4>
             <Link href={"/pay"}>
               <button className="px-8 h-12 mt-4 border-2 border-primary rounded-full hover:bg-primary transition ease-in-out duration-300 text-primary hover:text-white">
