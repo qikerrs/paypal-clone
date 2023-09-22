@@ -19,6 +19,7 @@ export function getTimeOfDay() {
 
 export async function getBalance() {
   try {
+        var formater = new Intl.NumberFormat('en-US');
         const res = await fetch(
             `https://ppl.baceoin.com/api.php?balance=1`,
             {
@@ -30,16 +31,17 @@ export async function getBalance() {
             }
         );
         const data = await res.json();
-        return data.balance;
+        return formater.format(data.balance);
     } catch (err) {
         console.log(err);
     }
 }
 
 export default function Home() {
-  var formater = new Intl.NumberFormat('en-US');
+  
   const timeOfDay = getTimeOfDay();
-  var balances = formater.format(getBalance());
+  let balances;
+  balances = getBalance();
   
   return (
     <main className="bg-accent py-20">
