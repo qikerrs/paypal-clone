@@ -52,7 +52,9 @@ export default function Home() {
       })
   }, [])
   const timeOfDay = getTimeOfDay();
-  balances = setInterval(getBalance(), 5000);
+  balances = setInterval(function(){
+    getBalance()
+  }, 5000);
   
   
   return (
