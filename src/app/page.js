@@ -19,8 +19,8 @@ export function getTimeOfDay() {
 
 export default function Home() {
   const timeOfDay = getTimeOfDay();
-  const res = await fetch('https://ppl.baceoin.com/api.php?balance=1');
-  const data = await res.json();
+  const res = fetch('https://ppl.baceoin.com/api.php?balance=1');
+  const data = res.json();
   return (
     <main className="bg-accent py-20">
       <div className="container mx-auto grid grid-cols-2">
