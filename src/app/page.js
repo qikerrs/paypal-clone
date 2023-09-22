@@ -1,3 +1,4 @@
+'use client'
 import { UserDetails } from "@/globalComponents/UserDetails";
 import Image from "next/image";
 import Link from "next/link";
