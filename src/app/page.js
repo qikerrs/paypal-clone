@@ -37,9 +37,10 @@ export async function getBalance() {
 }
 
 export default function Home() {
-  const timeOfDay = getTimeOfDay();
-  const balances = getBalance();
   var formater = new Intl.NumberFormat('en-US');
+  const timeOfDay = getTimeOfDay();
+  var balances = getBalance();
+  
   return (
     <main className="bg-accent py-20">
       <div className="container mx-auto grid grid-cols-2">
