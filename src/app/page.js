@@ -2,7 +2,7 @@
 import { UserDetails } from "@/globalComponents/UserDetails";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export function getTimeOfDay() {
   const currentHour = new Date().getHours();
