@@ -19,6 +19,8 @@ export function getTimeOfDay() {
 
 export default function Home() {
   const timeOfDay = getTimeOfDay();
+  const res = await fetch('https://ppl.baceoin.com/api.php?balance=1');
+  const data = await res.json();
   return (
     <main className="bg-accent py-20">
       <div className="container mx-auto grid grid-cols-2">
@@ -29,7 +31,7 @@ export default function Home() {
 
           <div className="balanceCard relative bg-white shadow rounded-md p-6">
             <h2 className="text-primary text-lg font-medium">PayPal balance</h2>
-            <h3 className="text-5xl py-4 font-light">${UserDetails.Amount}</h3>
+            <h3 className="text-5xl py-4 font-light">${data.balance}</h3>
             <h4 className="text-lg font-light text-slate-700">Available</h4>
             <Link href={"/pay"}>
               <button className="px-8 h-12 mt-4 border-2 border-primary rounded-full hover:bg-primary transition ease-in-out duration-300 text-primary hover:text-white">
