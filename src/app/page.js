@@ -41,19 +41,16 @@ export async function getBalance() {
 
 export default function Home() {
   const [data, setData] = useState();
-
-  useEffect(() => {
+  let balances;
+  balances = useEffect(() => {
     const interval = setInterval(() => {
-      fetch('https://ppl.baceoin.com/api.php?balance=1', { cache: 'no-store' })
-        .then(res => res.json())
-        .then(data => setData(data));
+      getBalance();
     }, 3000);
 
     return () => clearInterval(interval);
   }, []);
   const timeOfDay = getTimeOfDay();
-  let balances;
-  balances = getBalance();
+  //balances = getBalance();
   
   return (
     <main className="bg-accent py-20">
